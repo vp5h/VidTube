@@ -1,13 +1,16 @@
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/header/Header';
 import Sidebar from './components/sidebar/Sidebar';
 import HomeScreen from './Screens/homeScreen/HomeScreen';
 import { Container } from 'react-bootstrap';
 import './_app.scss';
-import { useSelector } from 'react-redux'
-
+import { useSelector } from 'react-redux';
 import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
+import ChannelScreen from './Screens/channelScreen/ChannelScreen';
 import LoginScreen from './Screens/loginScreen/LoginScreen';
+import WatchScreen from './Screens/watchScreen/WatchScreen';
+import SearchScreen from './Screens/SearchScreen';
+import SubscriptionsScreen from './Screens/subscriptionsScreen/SubscriptionsScreen';
 
 const Layout = ({ children }) => {
   const [sidebar, toggleSidebar] = useState(false);
@@ -50,12 +53,26 @@ function App() {
         <LoginScreen />
       </Route>
 
-      <Route path="/search">
+      <Route path="/search/:query">
         <Layout>
-          <h1>Search Results</h1>
+          <SearchScreen />
         </Layout>
       </Route>
-
+      <Route path="/feed/subscriptions">
+        <Layout>
+          <SubscriptionsScreen />
+        </Layout>
+      </Route>
+      <Route path="/watch/:id">
+        <Layout>
+          <WatchScreen />
+        </Layout>
+      </Route>
+      <Route path="/channel/:channelId">
+        <Layout>
+          <ChannelScreen />
+        </Layout>
+      </Route>
       <Route>
         <Redirect to="/" />
       </Route>

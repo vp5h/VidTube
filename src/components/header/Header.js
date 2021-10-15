@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
 import '../header/_header.scss';
-
+import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import { MdNotifications, MdApps } from 'react-icons/md';
-
+import { useHistory } from 'react-router-dom'
 import { AiOutlineSearch } from 'react-icons/ai';
+import { useSelector } from 'react-redux'
+
+
 const Header = ({ handleToggleSidebar }) => {
   const [input, setInput] = useState('');
-
+  const history = useHistory()
   const handleSubmit = (e) => {
     e.preventDefault();
+    history.push(`/search/${input}`)
   };
+
+  const user = useSelector(state => state.auth?.user)
+
   return (
     <div className=" header">
       <FaBars
@@ -18,11 +25,13 @@ const Header = ({ handleToggleSidebar }) => {
         size={26}
         onClick={() => handleToggleSidebar()}
       />
-      <img
-        src="http://pngimg.com/uploads/youtube/youtube_PNG2.png"
-        alt=""
-        className="header__logo"
-      />
+      <Link to="/">
+        <img
+          src="http://pngimg.com/uploads/youtube/youtube_PNG2.png"
+          alt=""
+          className="header__logo"
+        />
+      </Link>
 
       <form onSubmit={handleSubmit}>
         <input
@@ -38,10 +47,7 @@ const Header = ({ handleToggleSidebar }) => {
       <div className="header__icons">
         <MdNotifications size={28} />
         <MdApps size={28} />
-        <img
-          src="https://static.vecteezy.com/system/resources/previews/002/475/727/non_2x/young-man-profile-avatar-character-flat-style-icon-free-vector.jpg"
-          alt="avatar"
-        />
+        <img src={user?.photoURL} alt='avatar' />
       </div>
     </div>
   );

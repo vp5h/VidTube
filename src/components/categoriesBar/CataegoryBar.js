@@ -1,32 +1,44 @@
-import React, { useState } from 'react';
-import './_cataegoryBar.scss';
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import {
+   getPopularVideos,
+   getVideosByCategory,
+} from '../../redux/actions/videos.action'
+import './_cataegoryBar.scss'
 
 const keywords = [
-  'All',
-  'React js',
-  'Angular js',
-  'React Native',
-  'use of API',
-  'Redux',
-  'Music',
-  'Algorithm Art ',
-  'Guitar',
-  'Bengali Songs',
-  'Coding',
-  'Cricket',
-  'Football',
-  'Real Madrid',
-  'Gatsby',
-  'Poor Coder',
-  'Shwetabh',
+   'Trending',
+   'ReactJS',
+   'Angular',
+   'React Native',
+   'Next JS',
+   'Vue JS',
+   'NodeJS',
+   'Prateek kuhad',
+   'FiddleCraft',
+   'Adarsh Rao ',
+   'Lifafa',
+   'Twin Strings',
+   'Ankur Tewari',
+   'Cricket',
+   'Football',
+   'Gatsby',
 ]
 
-const CataegoryBar = () => {
-  const [activeElement, setActiveElement] = useState('All')
 
-  const handleClick = value => {
-     setActiveElement(value)
-  }
+
+const CataegoryBar = () => {
+   const [activeElement, setActiveElement] = useState('Trending')
+
+   const dispatch = useDispatch()
+   const handleClick = value => {
+      setActiveElement(value)
+      if (value === 'Trending') {
+         dispatch(getPopularVideos())
+      } else {
+         dispatch(getVideosByCategory(value))
+      }
+   }
 
   return (
      <div className='categoriesBar'>

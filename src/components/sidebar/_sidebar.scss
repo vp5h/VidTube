@@ -1,60 +1,95 @@
-@import "../../_base.scss";
+@import '../../_base.scss';
 
 .sidebar {
-   background: $black-secondary;
+  background: $black-secondary;
 
-   display: flex;
-   flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-   width: 250px;
-   height: 90vh;
-   padding-top: 2rem;
-   transition: transform 0.2s ease-in;
-   li {
-      display: flex;
-      align-items: center;
+  width: 250px;
+  height: 90vh;
+  padding-top: 2rem;
+  transition: transform 0.2s ease-in;
 
-      padding: 0.6rem 1.5rem;
-      margin: 0.2rem 0;
-      cursor: pointer;
+  position: sticky;
+  top: 10vh;
+  left: 0;
 
-      span {
-         margin-left: 1rem;
-         font-size: 14px;
-         font-weight: 500;
-         letter-spacing: 0.4px;
-      }
+  a {
+    text-decoration: none;
+    color: $text-color;
+    &:hover {
+      color: $text-color;
+      text-decoration: none;
+    }
+  }
 
-      &:hover {
-         background-color: $border-color;
-      }
-   }
+  li {
+    display: flex;
+    align-items: center;
 
-   hr {
+    padding: 0.6rem 1.5rem;
+    margin: 0.2rem 0;
+    cursor: pointer;
+
+    span {
+      margin-left: 1rem;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+    }
+
+    &:hover {
       background-color: $border-color;
-   }
+    }
+  }
 
-   &.open {
-      transform: translateX(0);
-   }
+  hr {
+    background-color: $border-color;
+  }
+
+  &.open {
+    transform: translateX(0);
+  }
 }
 
 @media (max-width: $breakpoint-medium) {
-   .sidebar {
-      width: 90px;
-      li {
-         justify-content: center;
-      }
-      span {
-         display: none;
-      }
-   }
+  .sidebar {
+    width: 90px;
+    li {
+      justify-content: center;
+    }
+    span {
+      display: none;
+    }
+  }
+  .chnName{
+   display: none;
+}
 }
 @media (max-width: $breakpoint-small) {
-   .sidebar {
-      transform: translateX(-100%);
+  .sidebar {
+    transform: translateX(-100%);
 
-      position: fixed;
-      z-index: 999;
-   }
+    position: fixed;
+    z-index: 999;
+  }
+  .chnName{
+     display: none;
+  }
+}
+
+.chmment {
+  //   padding: 2rem;
+  margin: -1px 15px;
+  font-size: 0.9rem;
+ 
+  img {
+    width: 40px;
+    border-radius: 50%;
+    height: 40px;
+  }
+  .chnName {
+    padding: 0.5rem;
+  }
 }
