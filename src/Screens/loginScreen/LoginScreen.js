@@ -1,43 +1,41 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react';
 
-import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
-import { login } from '../../redux/actions/auth.action'
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { login } from '../../redux/actions/auth.action';
 
-
-import './loginScreen.scss'
+import './loginScreen.scss';
 
 const LoginScreen = () => {
+  const dispatch = useDispatch();
 
-   const dispatch = useDispatch()
+  const accessToken = useSelector((state) => state.auth.accessToken);
 
-   const accessToken = useSelector(state => state.auth.accessToken)
+  const handleLogin = () => {
+    dispatch(login());
+    
+   };
+  const history = useHistory();
 
-   const handleLogin = () => {
-      dispatch(login())
-   }
+  useEffect(() => {
+    if (accessToken) {
+      history.push('/');
+    }
+  }, [accessToken, history]);
 
-   const history = useHistory()
-
-   useEffect(() => {
-      if (accessToken) {
-         history.push('/')
-      }
-   }, [accessToken, history])
-
-   return (
-      <div className='login'>
-         <div className='login__container'>
-            <h2>VidTube</h2>
-            <img
-               src='http://pngimg.com/uploads/youtube/youtube_PNG2.png'
-               alt=''
-            />
-            <button onClick={handleLogin}>Login With google</button>
-            <p>Made using YouTube's APIs</p>
-         </div>
+  return (
+    <div className="login">
+      <div className="login__container">
+        <h2>VidTube</h2>
+        <img src="http://pngimg.com/uploads/youtube/youtube_PNG2.png" alt="" />
+        <button onClick={handleLogin}>Login With google</button>
+        <p>Made using YouTube's APIs</p>
+        <br/>
+        <p className="BottomText">App needs Access to your Youtube channel</p>
+        <p className="BottomText">Subscriptions and Comments won't work without it</p>
       </div>
-   )
-}
+    </div>
+  );
+};
 
-export default LoginScreen
+export default LoginScreen;

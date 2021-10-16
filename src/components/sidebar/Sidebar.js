@@ -56,15 +56,16 @@ const Sidebar = ({ sidebar, handleToggleSidebar }) => {
             videos?.map(video => (
               <>
                <div className='p-2 chmment d-flex'>
-                <Link to={`channel/${video.snippet.channelId}`}></Link>
+                <Link to={`/channel/${video.snippet.resourceId.channelId}`}>
               <img src={video.snippet.thumbnails.medium.url} alt="subs"/>
+                </Link>
              <p className="chnName">{ video.snippet.title}</p>
                </div>
               </>
             ))
          ) : (
             <SkeletonTheme color='#343a40' highlightColor='#3c4147'>
-               <Skeleton width='100%' height='160px' count={20} />
+               <Skeleton width='100%' height='50px' count={5} />
             </SkeletonTheme>
          )}
      

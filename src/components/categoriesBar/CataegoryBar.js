@@ -13,16 +13,15 @@ const keywords = [
    'React Native',
    'Next JS',
    'Vue JS',
+   'Gatsby',
    'NodeJS',
+   'Redux',
+   'Google',
    'Prateek kuhad',
-   'FiddleCraft',
-   'Adarsh Rao ',
-   'Lifafa',
    'Twin Strings',
    'Ankur Tewari',
+   'The Local Train',
    'Cricket',
-   'Football',
-   'Gatsby',
 ]
 
 

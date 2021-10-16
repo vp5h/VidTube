@@ -25,11 +25,25 @@
         outline: none;
       }
     }
+    .BottomText {
+      color: REd;
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
   }
 
   img {
     width: 130px;
     height: 130px;
     object-fit: contain;
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .login {
+    &__container {
+      border: $black-primary 10px solid;
+      margin: 0rem;
+    }
   }
 }

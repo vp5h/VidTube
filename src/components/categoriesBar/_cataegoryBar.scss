@@ -5,12 +5,12 @@
    font-size: 0.8rem;
 
    display: flex;
-   overflow-x: scroll;
+   overflow-x: overlay;
 
    &::-webkit-scrollbar {
-      width: 0px;
+      width: 2px;
    }
-   scrollbar-width: none;
+   scrollbar-width: 2px;
 
    span {
       margin-right: 1rem;
