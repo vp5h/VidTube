@@ -1,7 +1,6 @@
 # VidTube
 
-A video app done with youtube Api V3
-
+A video that levrages youtube dataV3 Api to Show Videos, Chnannels, Searches and Logged users Subscriptions and can add comments
 
 ## Features
 
