@@ -1,6 +1,6 @@
 # VidTube
 
-A video that levrages youtube dataV3 Api to Show Videos, Chnannels, Searches and Logged users Subscriptions and can add comments
+A video App that leverages youtube dataV3 Api to Show Videos, Channels, Searches and Logged users Subscriptions and can add comments
 
 ## Features
 
