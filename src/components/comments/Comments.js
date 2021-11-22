@@ -38,7 +38,7 @@ const Comments = ({ videoId, totalComments }) => {
           <input
             type="text"
             className="flex-grow-1"
-            placeholder="Write a comment..."
+            placeholder="Write a comment, It Will Popup in 3 seconds..."
             value={text}
             onChange={(e) => setText(e.target.value)}
           />

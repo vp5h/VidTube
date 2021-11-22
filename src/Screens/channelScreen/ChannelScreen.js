@@ -4,7 +4,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import Video from '../../components/video/Video'
-import { getChannelDetails } from '../../redux/actions/channel.action'
+import { getChannelDetails,  checkSubscriptionStatus } from '../../redux/actions/channel.action'
 import { getVideosByChannel } from '../../redux/actions/videos.action'
 
 import numeral from 'numeral'
@@ -19,11 +19,16 @@ const ChannelScreen = () => {
    useEffect(() => {
       dispatch(getVideosByChannel(channelId))
       dispatch(getChannelDetails(channelId))
+      dispatch(checkSubscriptionStatus(channelId))
    }, [dispatch, channelId])
 
    const { videos, loading } = useSelector(state => state.channelVideos)
    const { snippet, statistics } = useSelector(
       state => state.channelDetails.channel
+   )
+
+   const subscriptionStatus = useSelector(
+      state => state.channelDetails.subscriptionStatus
    )
 
    return (
@@ -41,7 +46,13 @@ const ChannelScreen = () => {
                </div>
             </div>
 
-            <button>Subscribe</button>
+            {/* <button>Subscribe</button> */}
+            <button
+               className={`p-2 m-2 border-0 btn ${
+                  subscriptionStatus && 'btn-gray'
+               }`}>
+               {subscriptionStatus ? 'Subscribed' : 'Subscribe'}
+            </button>
          </div>
 
          <Container>

@@ -34,3 +34,21 @@
       }
    }
 }
+
+button {
+   background-color: red;
+   color: #fff;
+   border-radius: 0;
+   text-transform: uppercase;
+   letter-spacing: 0.5px;
+   &.btn-gray {
+      background-color: gray;
+   }
+   &:hover {
+      color: #fff;
+   }
+   &:focus {
+      border: none;
+      outline: none;
+   }
+}
