@@ -46,11 +46,12 @@ const Sidebar = ({ sidebar, handleToggleSidebar }) => {
       
 
       <hr />
-
+      <Link to="/auth">
       <li onClick={logOutHandler}>
         <MdExitToApp size={23} />
         <span>Log Out</span>
       </li>
+      </Link>
      <li className="subli">Subs</li>
          {!loading ? (
             videos?.map(video => (

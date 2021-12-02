@@ -45,8 +45,8 @@ const Header = ({ handleToggleSidebar }) => {
         </button>
       </form>
       <div className="header__icons">
-        <MdNotifications size={28} />
-        <MdApps size={28} />
+        {/* <MdNotifications size={28} />
+        <MdApps size={28} /> */}
         <img src={user?.photoURL} alt='avatar' />
       </div>
     </div>

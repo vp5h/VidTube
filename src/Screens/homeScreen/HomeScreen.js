@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container } from 'react-bootstrap';
 import CategoriesBar from '../../components/categoriesBar/CataegoryBar';
 import Video from '../../components/video/Video';
 import { useDispatch, useSelector } from 'react-redux'
